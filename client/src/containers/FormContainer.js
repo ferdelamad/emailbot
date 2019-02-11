@@ -4,6 +4,7 @@ import {
   updateField,
   updateDisplayedTemplate,
   addRecipient,
+  removeRecipient,
   updateResponse,
 } from '../actions/actions';
 
@@ -26,6 +27,9 @@ const mapDispatchToProps = dispatch => ({
   },
   addRecipient: (q) => {
     dispatch(addRecipient(q));
+  },
+  removeRecipient: (q) => {
+    dispatch(removeRecipient(q));
   },
 });
 

@@ -87,7 +87,7 @@ class Form extends React.Component {
 
   render() {
     const {
-      templates, currentUser, form, recipients, addRecipient,
+      templates, currentUser, form, recipients, addRecipient, removeRecipient,
     } = this.props;
     const { name } = currentUser;
     const { value, subjectLine, message } = form;
@@ -110,7 +110,11 @@ class Form extends React.Component {
           >
             Select recipients
           </Selector>
-          <Recipients recipients={recipients} addRecipient={addRecipient} />
+          <Recipients
+            recipients={recipients}
+            addRecipient={addRecipient}
+            removeRecipient={removeRecipient}
+          />
           <CustomInput type="text" name="name" value={name} onChange={this.handleChange}>
             Sender
           </CustomInput>
@@ -139,6 +143,7 @@ Form.propTypes = {
   updateDisplayedTemplate: PropTypes.func.isRequired,
   updateResponse: PropTypes.func.isRequired,
   addRecipient: PropTypes.func.isRequired,
+  removeRecipient: PropTypes.func.isRequired,
   form: PropTypes.instanceOf(Object).isRequired,
   currentUser: PropTypes.instanceOf(Object).isRequired,
   templates: PropTypes.instanceOf(Object).isRequired,
